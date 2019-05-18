@@ -1,0 +1,1332 @@
+Running test for regular expression "^This is string A$"
+
+1 lines matched from machine.1.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510076:This is string A
+
+1 lines matched from machine.1.log in54.193.91.241
+No Results from machine.2.log in13.57.234.1
+No Results from machine.3.log in13.57.238.30
+No Results from machine.4.log in54.193.37.145
+No Results from machine.5.log in54.193.77.234
+No Results from machine.6.log in54.219.130.46
+Total lines matched: 1
+
+	Test passed for VM1
+
+No Results from machine.2.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510076:This is string A
+
+1 lines matched from machine.1.log in54.193.91.241
+No Results from machine.2.log in13.57.234.1
+No Results from machine.3.log in13.57.238.30
+No Results from machine.4.log in54.193.37.145
+No Results from machine.5.log in54.193.77.234
+No Results from machine.6.log in54.219.130.46
+Total lines matched: 1
+
+	Test passed for VM2
+
+No Results from machine.3.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510076:This is string A
+
+1 lines matched from machine.1.log in54.193.91.241
+No Results from machine.2.log in13.57.234.1
+No Results from machine.3.log in13.57.238.30
+No Results from machine.4.log in54.193.37.145
+No Results from machine.5.log in54.193.77.234
+No Results from machine.6.log in54.219.130.46
+Total lines matched: 1
+
+	Test passed for VM3
+
+No Results from machine.4.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510076:This is string A
+
+1 lines matched from machine.1.log in54.193.91.241
+No Results from machine.2.log in13.57.234.1
+No Results from machine.3.log in13.57.238.30
+No Results from machine.4.log in54.193.37.145
+No Results from machine.5.log in54.193.77.234
+No Results from machine.6.log in54.219.130.46
+Total lines matched: 1
+
+	Test passed for VM4
+
+No Results from machine.5.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510076:This is string A
+
+1 lines matched from machine.1.log in54.193.91.241
+No Results from machine.2.log in13.57.234.1
+No Results from machine.3.log in13.57.238.30
+No Results from machine.4.log in54.193.37.145
+No Results from machine.5.log in54.193.77.234
+No Results from machine.6.log in54.219.130.46
+Total lines matched: 1
+
+	Test passed for VM5
+
+No Results from machine.6.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510076:This is string A
+
+1 lines matched from machine.1.log in54.193.91.241
+No Results from machine.2.log in13.57.234.1
+No Results from machine.3.log in13.57.238.30
+No Results from machine.4.log in54.193.37.145
+No Results from machine.5.log in54.193.77.234
+No Results from machine.6.log in54.219.130.46
+Total lines matched: 1
+
+	Test passed for VM6
+Running test for regular expression "^This is.*string A$"
+
+1 lines matched from machine.1.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510076:This is string A
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548123:This is not string A
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502146:This is also not string A
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368718:This is definitely not string A
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464093:This is absolutely not string A
+
+1 lines matched from machine.1.log in54.193.91.241
+1 lines matched from machine.2.log in13.57.234.1
+1 lines matched from machine.3.log in13.57.238.30
+1 lines matched from machine.4.log in54.193.37.145
+1 lines matched from machine.5.log in54.193.77.234
+No Results from machine.6.log in54.219.130.46
+Total lines matched: 5
+
+	Test passed for VM1
+
+1 lines matched from machine.2.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510076:This is string A
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548123:This is not string A
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502146:This is also not string A
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368718:This is definitely not string A
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464093:This is absolutely not string A
+
+1 lines matched from machine.1.log in54.193.91.241
+1 lines matched from machine.2.log in13.57.234.1
+1 lines matched from machine.3.log in13.57.238.30
+1 lines matched from machine.4.log in54.193.37.145
+1 lines matched from machine.5.log in54.193.77.234
+No Results from machine.6.log in54.219.130.46
+Total lines matched: 5
+
+	Test passed for VM2
+
+1 lines matched from machine.3.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510076:This is string A
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548123:This is not string A
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502146:This is also not string A
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368718:This is definitely not string A
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464093:This is absolutely not string A
+
+1 lines matched from machine.1.log in54.193.91.241
+1 lines matched from machine.2.log in13.57.234.1
+1 lines matched from machine.3.log in13.57.238.30
+1 lines matched from machine.4.log in54.193.37.145
+1 lines matched from machine.5.log in54.193.77.234
+No Results from machine.6.log in54.219.130.46
+Total lines matched: 5
+
+	Test passed for VM3
+
+1 lines matched from machine.4.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510076:This is string A
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548123:This is not string A
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502146:This is also not string A
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368718:This is definitely not string A
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464093:This is absolutely not string A
+
+1 lines matched from machine.1.log in54.193.91.241
+1 lines matched from machine.2.log in13.57.234.1
+1 lines matched from machine.3.log in13.57.238.30
+1 lines matched from machine.4.log in54.193.37.145
+1 lines matched from machine.5.log in54.193.77.234
+No Results from machine.6.log in54.219.130.46
+Total lines matched: 5
+
+	Test passed for VM4
+
+1 lines matched from machine.5.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510076:This is string A
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548123:This is not string A
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502146:This is also not string A
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368718:This is definitely not string A
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464093:This is absolutely not string A
+
+1 lines matched from machine.1.log in54.193.91.241
+1 lines matched from machine.2.log in13.57.234.1
+1 lines matched from machine.3.log in13.57.238.30
+1 lines matched from machine.4.log in54.193.37.145
+1 lines matched from machine.5.log in54.193.77.234
+No Results from machine.6.log in54.219.130.46
+Total lines matched: 5
+
+	Test passed for VM5
+
+No Results from machine
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510076:This is string A
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548123:This is not string A
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502146:This is also not string A
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368718:This is definitely not string A
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464093:This is absolutely not string A
+
+1 lines matched from machine.1.log in54.193.91.241
+1 lines matched from machine.2.log in13.57.234.1
+1 lines matched from machine.3.log in13.57.238.30
+1 lines matched from machine.4.log in54.193.37.145
+1 lines matched from machine.5.log in54.193.77.234
+No Results from machine.6.log in54.219.130.46
+Total lines matched: 5
+
+	Test passed for VM6
+Running test for regular expression "^Test pattern B$"
+
+18 lines matched from machine.1.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510057:Test pattern B
+/home/ubuntu/machine.1.log:510058:Test pattern B
+/home/ubuntu/machine.1.log:510060:Test pattern B
+/home/ubuntu/machine.1.log:510061:Test pattern B
+/home/ubuntu/machine.1.log:510062:Test pattern B
+/home/ubuntu/machine.1.log:510063:Test pattern B
+/home/ubuntu/machine.1.log:510065:Test pattern B
+/home/ubuntu/machine.1.log:510066:Test pattern B
+/home/ubuntu/machine.1.log:510067:Test pattern B
+/home/ubuntu/machine.1.log:510069:Test pattern B
+/home/ubuntu/machine.1.log:510071:Test pattern B
+/home/ubuntu/machine.1.log:510072:Test pattern B
+/home/ubuntu/machine.1.log:510073:Test pattern B
+/home/ubuntu/machine.1.log:510074:Test pattern B
+/home/ubuntu/machine.1.log:510075:Test pattern B
+/home/ubuntu/machine.1.log:510077:Test pattern B
+/home/ubuntu/machine.1.log:510079:Test pattern B
+/home/ubuntu/machine.1.log:510080:Test pattern B
+
+18 lines matched from machine.1.log in54.193.91.241
+No Results from machine.2.log in13.57.234.1
+No Results from machine.3.log in13.57.238.30
+No Results from machine.4.log in54.193.37.145
+No Results from machine.5.log in54.193.77.234
+No Results from machine.6.log in54.219.130.46
+Total lines matched: 18
+
+	Test passed for VM1
+
+No Results from machine.2.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510057:Test pattern B
+/home/ubuntu/machine.1.log:510058:Test pattern B
+/home/ubuntu/machine.1.log:510060:Test pattern B
+/home/ubuntu/machine.1.log:510061:Test pattern B
+/home/ubuntu/machine.1.log:510062:Test pattern B
+/home/ubuntu/machine.1.log:510063:Test pattern B
+/home/ubuntu/machine.1.log:510065:Test pattern B
+/home/ubuntu/machine.1.log:510066:Test pattern B
+/home/ubuntu/machine.1.log:510067:Test pattern B
+/home/ubuntu/machine.1.log:510069:Test pattern B
+/home/ubuntu/machine.1.log:510071:Test pattern B
+/home/ubuntu/machine.1.log:510072:Test pattern B
+/home/ubuntu/machine.1.log:510073:Test pattern B
+/home/ubuntu/machine.1.log:510074:Test pattern B
+/home/ubuntu/machine.1.log:510075:Test pattern B
+/home/ubuntu/machine.1.log:510077:Test pattern B
+/home/ubuntu/machine.1.log:510079:Test pattern B
+/home/ubuntu/machine.1.log:510080:Test pattern B
+
+18 lines matched from machine.1.log in54.193.91.241
+No Results from machine.2.log in13.57.234.1
+No Results from machine.3.log in13.57.238.30
+No Results from machine.4.log in54.193.37.145
+No Results from machine.5.log in54.193.77.234
+No Results from machine.6.log in54.219.130.46
+Total lines matched: 18
+
+	Test passed for VM2
+
+No Results from machine.3.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510057:Test pattern B
+/home/ubuntu/machine.1.log:510058:Test pattern B
+/home/ubuntu/machine.1.log:510060:Test pattern B
+/home/ubuntu/machine.1.log:510061:Test pattern B
+/home/ubuntu/machine.1.log:510062:Test pattern B
+/home/ubuntu/machine.1.log:510063:Test pattern B
+/home/ubuntu/machine.1.log:510065:Test pattern B
+/home/ubuntu/machine.1.log:510066:Test pattern B
+/home/ubuntu/machine.1.log:510067:Test pattern B
+/home/ubuntu/machine.1.log:510069:Test pattern B
+/home/ubuntu/machine.1.log:510071:Test pattern B
+/home/ubuntu/machine.1.log:510072:Test pattern B
+/home/ubuntu/machine.1.log:510073:Test pattern B
+/home/ubuntu/machine.1.log:510074:Test pattern B
+/home/ubuntu/machine.1.log:510075:Test pattern B
+/home/ubuntu/machine.1.log:510077:Test pattern B
+/home/ubuntu/machine.1.log:510079:Test pattern B
+/home/ubuntu/machine.1.log:510080:Test pattern B
+
+18 lines matched from machine.1.log in54.193.91.241
+No Results from machine.2.log in13.57.234.1
+No Results from machine.3.log in13.57.238.30
+No Results from machine.4.log in54.193.37.145
+No Results from machine.5.log in54.193.77.234
+No Results from machine.6.log in54.219.130.46
+Total lines matched: 18
+
+	Test passed for VM3
+
+No Results from machine.4.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510057:Test pattern B
+/home/ubuntu/machine.1.log:510058:Test pattern B
+/home/ubuntu/machine.1.log:510060:Test pattern B
+/home/ubuntu/machine.1.log:510061:Test pattern B
+/home/ubuntu/machine.1.log:510062:Test pattern B
+/home/ubuntu/machine.1.log:510063:Test pattern B
+/home/ubuntu/machine.1.log:510065:Test pattern B
+/home/ubuntu/machine.1.log:510066:Test pattern B
+/home/ubuntu/machine.1.log:510067:Test pattern B
+/home/ubuntu/machine.1.log:510069:Test pattern B
+/home/ubuntu/machine.1.log:510071:Test pattern B
+/home/ubuntu/machine.1.log:510072:Test pattern B
+/home/ubuntu/machine.1.log:510073:Test pattern B
+/home/ubuntu/machine.1.log:510074:Test pattern B
+/home/ubuntu/machine.1.log:510075:Test pattern B
+/home/ubuntu/machine.1.log:510077:Test pattern B
+/home/ubuntu/machine.1.log:510079:Test pattern B
+/home/ubuntu/machine.1.log:510080:Test pattern B
+
+18 lines matched from machine.1.log in54.193.91.241
+No Results from machine.2.log in13.57.234.1
+No Results from machine.3.log in13.57.238.30
+No Results from machine.4.log in54.193.37.145
+No Results from machine.5.log in54.193.77.234
+No Results from machine.6.log in54.219.130.46
+Total lines matched: 18
+
+	Test passed for VM4
+
+No Results from machine.5.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510057:Test pattern B
+/home/ubuntu/machine.1.log:510058:Test pattern B
+/home/ubuntu/machine.1.log:510060:Test pattern B
+/home/ubuntu/machine.1.log:510061:Test pattern B
+/home/ubuntu/machine.1.log:510062:Test pattern B
+/home/ubuntu/machine.1.log:510063:Test pattern B
+/home/ubuntu/machine.1.log:510065:Test pattern B
+/home/ubuntu/machine.1.log:510066:Test pattern B
+/home/ubuntu/machine.1.log:510067:Test pattern B
+/home/ubuntu/machine.1.log:510069:Test pattern B
+/home/ubuntu/machine.1.log:510071:Test pattern B
+/home/ubuntu/machine.1.log:510072:Test pattern B
+/home/ubuntu/machine.1.log:510073:Test pattern B
+/home/ubuntu/machine.1.log:510074:Test pattern B
+/home/ubuntu/machine.1.log:510075:Test pattern B
+/home/ubuntu/machine.1.log:510077:Test pattern B
+/home/ubuntu/machine.1.log:510079:Test pattern B
+/home/ubuntu/machine.1.log:510080:Test pattern B
+
+18 lines matched from machine.1.log in54.193.91.241
+No Results from machine.2.log in13.57.234.1
+No Results from machine.3.log in13.57.238.30
+No Results from machine.4.log in54.193.37.145
+No Results from machine.5.log in54.193.77.234
+No Results from machine.6.log in54.219.130.46
+Total lines matched: 18
+
+	Test passed for VM5
+
+No Results from machine.6.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510057:Test pattern B
+/home/ubuntu/machine.1.log:510058:Test pattern B
+/home/ubuntu/machine.1.log:510060:Test pattern B
+/home/ubuntu/machine.1.log:510061:Test pattern B
+/home/ubuntu/machine.1.log:510062:Test pattern B
+/home/ubuntu/machine.1.log:510063:Test pattern B
+/home/ubuntu/machine.1.log:510065:Test pattern B
+/home/ubuntu/machine.1.log:510066:Test pattern B
+/home/ubuntu/machine.1.log:510067:Test pattern B
+/home/ubuntu/machine.1.log:510069:Test pattern B
+/home/ubuntu/machine.1.log:510071:Test pattern B
+/home/ubuntu/machine.1.log:510072:Test pattern B
+/home/ubuntu/machine.1.log:510073:Test pattern B
+/home/ubuntu/machine.1.log:510074:Test pattern B
+/home/ubuntu/machine.1.log:510075:Test pattern B
+/home/ubuntu/machine.1.log:510077:Test pattern B
+/home/ubuntu/machine.1.log:510079:Test pattern B
+/home/ubuntu/machine.1.log:510080:Test pattern B
+
+18 lines matched from machine.1.log in54.193.91.241
+No Results from machine.2.log in13.57.234.1
+No Results from machine.3.log in13.57.238.30
+No Results from machine.4.log in54.193.37.145
+No Results from machine.5.log in54.193.77.234
+No Results from machine.6.log in54.219.130.46
+Total lines matched: 18
+
+	Test passed for VM6
+Running test for regular expression "^This message is on all machine logs, but with different numbers [0-9]*$"
+
+1 lines matched from machine.1.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510068:This message is on all machine logs, but with different numbers 1234567
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548126:This message is on all machine logs, but with different numbers 254876234
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502148:This message is on all machine logs, but with different numbers 11
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368720:This message is on all machine logs, but with different numbers 23487124
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464091:This message is on all machine logs, but with different numbers 123456723487234765234
+
+From 54.219.130.46: 
+/home/ubuntu/machine.6.log:462008:This message is on all machine logs, but with different numbers 123124142223423234
+
+1 lines matched from machine.1.log in54.193.91.241
+1 lines matched from machine.2.log in13.57.234.1
+1 lines matched from machine.3.log in13.57.238.30
+1 lines matched from machine.4.log in54.193.37.145
+1 lines matched from machine.5.log in54.193.77.234
+1 lines matched from machine.6.log in54.219.130.46
+Total lines matched: 6
+
+	Test passed for VM1
+
+1 lines matched from machine.2.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510068:This message is on all machine logs, but with different numbers 1234567
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548126:This message is on all machine logs, but with different numbers 254876234
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502148:This message is on all machine logs, but with different numbers 11
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368720:This message is on all machine logs, but with different numbers 23487124
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464091:This message is on all machine logs, but with different numbers 123456723487234765234
+
+From 54.219.130.46: 
+/home/ubuntu/machine.6.log:462008:This message is on all machine logs, but with different numbers 123124142223423234
+
+1 lines matched from machine.1.log in54.193.91.241
+1 lines matched from machine.2.log in13.57.234.1
+1 lines matched from machine.3.log in13.57.238.30
+1 lines matched from machine.4.log in54.193.37.145
+1 lines matched from machine.5.log in54.193.77.234
+1 lines matched from machine.6.log in54.219.130.46
+Total lines matched: 6
+
+	Test passed for VM2
+
+1 lines matched from machine.3.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510068:This message is on all machine logs, but with different numbers 1234567
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548126:This message is on all machine logs, but with different numbers 254876234
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502148:This message is on all machine logs, but with different numbers 11
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368720:This message is on all machine logs, but with different numbers 23487124
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464091:This message is on all machine logs, but with different numbers 123456723487234765234
+
+From 54.219.130.46: 
+/home/ubuntu/machine.6.log:462008:This message is on all machine logs, but with different numbers 123124142223423234
+
+1 lines matched from machine.1.log in54.193.91.241
+1 lines matched from machine.2.log in13.57.234.1
+1 lines matched from machine.3.log in13.57.238.30
+1 lines matched from machine.4.log in54.193.37.145
+1 lines matched from machine.5.log in54.193.77.234
+1 lines matched from machine.6.log in54.219.130.46
+Total lines matched: 6
+
+	Test passed for VM3
+
+1 lines matched from machine.4.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510068:This message is on all machine logs, but with different numbers 1234567
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548126:This message is on all machine logs, but with different numbers 254876234
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502148:This message is on all machine logs, but with different numbers 11
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368720:This message is on all machine logs, but with different numbers 23487124
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464091:This message is on all machine logs, but with different numbers 123456723487234765234
+
+From 54.219.130.46: 
+/home/ubuntu/machine.6.log:462008:This message is on all machine logs, but with different numbers 123124142223423234
+
+1 lines matched from machine.1.log in54.193.91.241
+1 lines matched from machine.2.log in13.57.234.1
+1 lines matched from machine.3.log in13.57.238.30
+1 lines matched from machine.4.log in54.193.37.145
+1 lines matched from machine.5.log in54.193.77.234
+1 lines matched from machine.6.log in54.219.130.46
+Total lines matched: 6
+
+	Test passed for VM4
+
+1 lines matched from machine.5.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510068:This message is on all machine logs, but with different numbers 1234567
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548126:This message is on all machine logs, but with different numbers 254876234
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502148:This message is on all machine logs, but with different numbers 11
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368720:This message is on all machine logs, but with different numbers 23487124
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464091:This message is on all machine logs, but with different numbers 123456723487234765234
+
+From 54.219.130.46: 
+/home/ubuntu/machine.6.log:462008:This message is on all machine logs, but with different numbers 123124142223423234
+
+1 lines matched from machine.1.log in54.193.91.241
+1 lines matched from machine.2.log in13.57.234.1
+1 lines matched from machine.3.log in13.57.238.30
+1 lines matched from machine.4.log in54.193.37.145
+1 lines matched from machine.5.log in54.193.77.234
+1 lines matched from machine.6.log in54.219.130.46
+Total lines matched: 6
+
+	Test passed for VM5
+
+1 lines matched from machine.6.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510068:This message is on all machine logs, but with different numbers 1234567
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548126:This message is on all machine logs, but with different numbers 254876234
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502148:This message is on all machine logs, but with different numbers 11
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368720:This message is on all machine logs, but with different numbers 23487124
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464091:This message is on all machine logs, but with different numbers 123456723487234765234
+
+From 54.219.130.46: 
+/home/ubuntu/machine.6.log:462008:This message is on all machine logs, but with different numbers 123124142223423234
+
+1 lines matched from machine.1.log in54.193.91.241
+1 lines matched from machine.2.log in13.57.234.1
+1 lines matched from machine.3.log in13.57.238.30
+1 lines matched from machine.4.log in54.193.37.145
+1 lines matched from machine.5.log in54.193.77.234
+1 lines matched from machine.6.log in54.219.130.46
+Total lines matched: 6
+
+	Test passed for VM6
+Running test for regular expression "^Common.*but.*different.*pattern$"
+
+3 lines matched from machine.1.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510059:Common A but B different C pattern
+/home/ubuntu/machine.1.log:510064:Common G but H different I pattern
+/home/ubuntu/machine.1.log:510070:Common D but E different F pattern
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548120:Common j but k different l pattern
+/home/ubuntu/machine.2.log:548121:Common d but e different f pattern
+/home/ubuntu/machine.2.log:548122:Common a but b different c pattern
+/home/ubuntu/machine.2.log:548124:Common g but h different i pattern
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502145:Common j but g different d pattern
+/home/ubuntu/machine.3.log:502147:Common hgc but but different but pattern
+/home/ubuntu/machine.3.log:502149:Common different but comon different but pattern
+/home/ubuntu/machine.3.log:502150:Common o but hj different d pattern
+/home/ubuntu/machine.3.log:502152:Common bb but uft different but pattern
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368717:Common hhh but a different b pattern
+/home/ubuntu/machine.4.log:368719:Common common but but different yyy pattern
+/home/ubuntu/machine.4.log:368721:Common comm but oih different oih pattern
+/home/ubuntu/machine.4.log:368722:Common c but f different igu pattern
+/home/ubuntu/machine.4.log:368723:Common io but 7876 different bkh6 pattern
+/home/ubuntu/machine.4.log:368725:Common 78f but common different Common pattern
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464089:Common khb but jkhb different c pattern
+/home/ubuntu/machine.5.log:464092:Common       but iuh different iub pattern
+/home/ubuntu/machine.5.log:464094:Common kjukj but vcxeswz different tugg pattern
+/home/ubuntu/machine.5.log:464095:Common kujhk but ityf ujygu iug  different uyfgf pattern
+/home/ubuntu/machine.5.log:464096:Common hhih   but iuhhb different uihbb pattern
+/home/ubuntu/machine.5.log:464097:Common  but iugv  different pattern
+
+From 54.219.130.46: 
+/home/ubuntu/machine.6.log:462003:Common hh but gg different chill pattern
+/home/ubuntu/machine.6.log:462004:Common hvkjb but tut different iub pattern
+/home/ubuntu/machine.6.log:462007:Common bbb but iu different different pattern
+
+3 lines matched from machine.1.log in54.193.91.241
+4 lines matched from machine.2.log in13.57.234.1
+5 lines matched from machine.3.log in13.57.238.30
+6 lines matched from machine.4.log in54.193.37.145
+6 lines matched from machine.5.log in54.193.77.234
+3 lines matched from machine.6.log in54.219.130.46
+Total lines matched: 27
+
+	Test passed for VM1
+
+4 lines matched from machine.2.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510059:Common A but B different C pattern
+/home/ubuntu/machine.1.log:510064:Common G but H different I pattern
+/home/ubuntu/machine.1.log:510070:Common D but E different F pattern
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548120:Common j but k different l pattern
+/home/ubuntu/machine.2.log:548121:Common d but e different f pattern
+/home/ubuntu/machine.2.log:548122:Common a but b different c pattern
+/home/ubuntu/machine.2.log:548124:Common g but h different i pattern
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502145:Common j but g different d pattern
+/home/ubuntu/machine.3.log:502147:Common hgc but but different but pattern
+/home/ubuntu/machine.3.log:502149:Common different but comon different but pattern
+/home/ubuntu/machine.3.log:502150:Common o but hj different d pattern
+/home/ubuntu/machine.3.log:502152:Common bb but uft different but pattern
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368717:Common hhh but a different b pattern
+/home/ubuntu/machine.4.log:368719:Common common but but different yyy pattern
+/home/ubuntu/machine.4.log:368721:Common comm but oih different oih pattern
+/home/ubuntu/machine.4.log:368722:Common c but f different igu pattern
+/home/ubuntu/machine.4.log:368723:Common io but 7876 different bkh6 pattern
+/home/ubuntu/machine.4.log:368725:Common 78f but common different Common pattern
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464089:Common khb but jkhb different c pattern
+/home/ubuntu/machine.5.log:464092:Common       but iuh different iub pattern
+/home/ubuntu/machine.5.log:464094:Common kjukj but vcxeswz different tugg pattern
+/home/ubuntu/machine.5.log:464095:Common kujhk but ityf ujygu iug  different uyfgf pattern
+/home/ubuntu/machine.5.log:464096:Common hhih   but iuhhb different uihbb pattern
+/home/ubuntu/machine.5.log:464097:Common  but iugv  different pattern
+
+From 54.219.130.46: 
+/home/ubuntu/machine.6.log:462003:Common hh but gg different chill pattern
+/home/ubuntu/machine.6.log:462004:Common hvkjb but tut different iub pattern
+/home/ubuntu/machine.6.log:462007:Common bbb but iu different different pattern
+
+3 lines matched from machine.1.log in54.193.91.241
+4 lines matched from machine.2.log in13.57.234.1
+5 lines matched from machine.3.log in13.57.238.30
+6 lines matched from machine.4.log in54.193.37.145
+6 lines matched from machine.5.log in54.193.77.234
+3 lines matched from machine.6.log in54.219.130.46
+Total lines matched: 27
+
+	Test passed for VM2
+
+5 lines matched from machine.3.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510059:Common A but B different C pattern
+/home/ubuntu/machine.1.log:510064:Common G but H different I pattern
+/home/ubuntu/machine.1.log:510070:Common D but E different F pattern
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548120:Common j but k different l pattern
+/home/ubuntu/machine.2.log:548121:Common d but e different f pattern
+/home/ubuntu/machine.2.log:548122:Common a but b different c pattern
+/home/ubuntu/machine.2.log:548124:Common g but h different i pattern
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502145:Common j but g different d pattern
+/home/ubuntu/machine.3.log:502147:Common hgc but but different but pattern
+/home/ubuntu/machine.3.log:502149:Common different but comon different but pattern
+/home/ubuntu/machine.3.log:502150:Common o but hj different d pattern
+/home/ubuntu/machine.3.log:502152:Common bb but uft different but pattern
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368717:Common hhh but a different b pattern
+/home/ubuntu/machine.4.log:368719:Common common but but different yyy pattern
+/home/ubuntu/machine.4.log:368721:Common comm but oih different oih pattern
+/home/ubuntu/machine.4.log:368722:Common c but f different igu pattern
+/home/ubuntu/machine.4.log:368723:Common io but 7876 different bkh6 pattern
+/home/ubuntu/machine.4.log:368725:Common 78f but common different Common pattern
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464089:Common khb but jkhb different c pattern
+/home/ubuntu/machine.5.log:464092:Common       but iuh different iub pattern
+/home/ubuntu/machine.5.log:464094:Common kjukj but vcxeswz different tugg pattern
+/home/ubuntu/machine.5.log:464095:Common kujhk but ityf ujygu iug  different uyfgf pattern
+/home/ubuntu/machine.5.log:464096:Common hhih   but iuhhb different uihbb pattern
+/home/ubuntu/machine.5.log:464097:Common  but iugv  different pattern
+
+From 54.219.130.46: 
+/home/ubuntu/machine.6.log:462003:Common hh but gg different chill pattern
+/home/ubuntu/machine.6.log:462004:Common hvkjb but tut different iub pattern
+/home/ubuntu/machine.6.log:462007:Common bbb but iu different different pattern
+
+3 lines matched from machine.1.log in54.193.91.241
+4 lines matched from machine.2.log in13.57.234.1
+5 lines matched from machine.3.log in13.57.238.30
+6 lines matched from machine.4.log in54.193.37.145
+6 lines matched from machine.5.log in54.193.77.234
+3 lines matched from machine.6.log in54.219.130.46
+Total lines matched: 27
+
+	Test passed for VM3
+
+6 lines matched from machine.4.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510059:Common A but B different C pattern
+/home/ubuntu/machine.1.log:510064:Common G but H different I pattern
+/home/ubuntu/machine.1.log:510070:Common D but E different F pattern
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548120:Common j but k different l pattern
+/home/ubuntu/machine.2.log:548121:Common d but e different f pattern
+/home/ubuntu/machine.2.log:548122:Common a but b different c pattern
+/home/ubuntu/machine.2.log:548124:Common g but h different i pattern
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502145:Common j but g different d pattern
+/home/ubuntu/machine.3.log:502147:Common hgc but but different but pattern
+/home/ubuntu/machine.3.log:502149:Common different but comon different but pattern
+/home/ubuntu/machine.3.log:502150:Common o but hj different d pattern
+/home/ubuntu/machine.3.log:502152:Common bb but uft different but pattern
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368717:Common hhh but a different b pattern
+/home/ubuntu/machine.4.log:368719:Common common but but different yyy pattern
+/home/ubuntu/machine.4.log:368721:Common comm but oih different oih pattern
+/home/ubuntu/machine.4.log:368722:Common c but f different igu pattern
+/home/ubuntu/machine.4.log:368723:Common io but 7876 different bkh6 pattern
+/home/ubuntu/machine.4.log:368725:Common 78f but common different Common pattern
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464089:Common khb but jkhb different c pattern
+/home/ubuntu/machine.5.log:464092:Common       but iuh different iub pattern
+/home/ubuntu/machine.5.log:464094:Common kjukj but vcxeswz different tugg pattern
+/home/ubuntu/machine.5.log:464095:Common kujhk but ityf ujygu iug  different uyfgf pattern
+/home/ubuntu/machine.5.log:464096:Common hhih   but iuhhb different uihbb pattern
+/home/ubuntu/machine.5.log:464097:Common  but iugv  different pattern
+
+From 54.219.130.46: 
+/home/ubuntu/machine.6.log:462003:Common hh but gg different chill pattern
+/home/ubuntu/machine.6.log:462004:Common hvkjb but tut different iub pattern
+/home/ubuntu/machine.6.log:462007:Common bbb but iu different different pattern
+
+3 lines matched from machine.1.log in54.193.91.241
+4 lines matched from machine.2.log in13.57.234.1
+5 lines matched from machine.3.log in13.57.238.30
+6 lines matched from machine.4.log in54.193.37.145
+6 lines matched from machine.5.log in54.193.77.234
+3 lines matched from machine.6.log in54.219.130.46
+Total lines matched: 27
+
+	Test passed for VM4
+
+6 lines matched from machine.5.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510059:Common A but B different C pattern
+/home/ubuntu/machine.1.log:510064:Common G but H different I pattern
+/home/ubuntu/machine.1.log:510070:Common D but E different F pattern
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548120:Common j but k different l pattern
+/home/ubuntu/machine.2.log:548121:Common d but e different f pattern
+/home/ubuntu/machine.2.log:548122:Common a but b different c pattern
+/home/ubuntu/machine.2.log:548124:Common g but h different i pattern
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502145:Common j but g different d pattern
+/home/ubuntu/machine.3.log:502147:Common hgc but but different but pattern
+/home/ubuntu/machine.3.log:502149:Common different but comon different but pattern
+/home/ubuntu/machine.3.log:502150:Common o but hj different d pattern
+/home/ubuntu/machine.3.log:502152:Common bb but uft different but pattern
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368717:Common hhh but a different b pattern
+/home/ubuntu/machine.4.log:368719:Common common but but different yyy pattern
+/home/ubuntu/machine.4.log:368721:Common comm but oih different oih pattern
+/home/ubuntu/machine.4.log:368722:Common c but f different igu pattern
+/home/ubuntu/machine.4.log:368723:Common io but 7876 different bkh6 pattern
+/home/ubuntu/machine.4.log:368725:Common 78f but common different Common pattern
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464089:Common khb but jkhb different c pattern
+/home/ubuntu/machine.5.log:464092:Common       but iuh different iub pattern
+/home/ubuntu/machine.5.log:464094:Common kjukj but vcxeswz different tugg pattern
+/home/ubuntu/machine.5.log:464095:Common kujhk but ityf ujygu iug  different uyfgf pattern
+/home/ubuntu/machine.5.log:464096:Common hhih   but iuhhb different uihbb pattern
+/home/ubuntu/machine.5.log:464097:Common  but iugv  different pattern
+
+From 54.219.130.46: 
+/home/ubuntu/machine.6.log:462003:Common hh but gg different chill pattern
+/home/ubuntu/machine.6.log:462004:Common hvkjb but tut different iub pattern
+/home/ubuntu/machine.6.log:462007:Common bbb but iu different different pattern
+
+3 lines matched from machine.1.log in54.193.91.241
+4 lines matched from machine.2.log in13.57.234.1
+5 lines matched from machine.3.log in13.57.238.30
+6 lines matched from machine.4.log in54.193.37.145
+6 lines matched from machine.5.log in54.193.77.234
+3 lines matched from machine.6.log in54.219.130.46
+Total lines matched: 27
+
+	Test passed for VM5
+
+3 lines matched from machine.6.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510059:Common A but B different C pattern
+/home/ubuntu/machine.1.log:510064:Common G but H different I pattern
+/home/ubuntu/machine.1.log:510070:Common D but E different F pattern
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548120:Common j but k different l pattern
+/home/ubuntu/machine.2.log:548121:Common d but e different f pattern
+/home/ubuntu/machine.2.log:548122:Common a but b different c pattern
+/home/ubuntu/machine.2.log:548124:Common g but h different i pattern
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502145:Common j but g different d pattern
+/home/ubuntu/machine.3.log:502147:Common hgc but but different but pattern
+/home/ubuntu/machine.3.log:502149:Common different but comon different but pattern
+/home/ubuntu/machine.3.log:502150:Common o but hj different d pattern
+/home/ubuntu/machine.3.log:502152:Common bb but uft different but pattern
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368717:Common hhh but a different b pattern
+/home/ubuntu/machine.4.log:368719:Common common but but different yyy pattern
+/home/ubuntu/machine.4.log:368721:Common comm but oih different oih pattern
+/home/ubuntu/machine.4.log:368722:Common c but f different igu pattern
+/home/ubuntu/machine.4.log:368723:Common io but 7876 different bkh6 pattern
+/home/ubuntu/machine.4.log:368725:Common 78f but common different Common pattern
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464089:Common khb but jkhb different c pattern
+/home/ubuntu/machine.5.log:464092:Common       but iuh different iub pattern
+/home/ubuntu/machine.5.log:464094:Common kjukj but vcxeswz different tugg pattern
+/home/ubuntu/machine.5.log:464095:Common kujhk but ityf ujygu iug  different uyfgf pattern
+/home/ubuntu/machine.5.log:464096:Common hhih   but iuhhb different uihbb pattern
+/home/ubuntu/machine.5.log:464097:Common  but iugv  different pattern
+
+From 54.219.130.46: 
+/home/ubuntu/machine.6.log:462003:Common hh but gg different chill pattern
+/home/ubuntu/machine.6.log:462004:Common hvkjb but tut different iub pattern
+/home/ubuntu/machine.6.log:462007:Common bbb but iu different different pattern
+
+3 lines matched from machine.1.log in54.193.91.241
+4 lines matched from machine.2.log in13.57.234.1
+5 lines matched from machine.3.log in13.57.238.30
+6 lines matched from machine.4.log in54.193.37.145
+6 lines matched from machine.5.log in54.193.77.234
+3 lines matched from machine.6.log in54.219.130.46
+Total lines matched: 27
+
+	Test passed for VM6
+Running test for regular expression "Once in all logs1234567"
+
+1 lines matched from machine.1.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510078:Once in all logs1234567
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548125:Once in all logs1234567
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502151:Once in all logs1234567
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368724:Once in all logs1234567
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464090:Once in all logs1234567
+
+From 54.219.130.46: 
+/home/ubuntu/machine.6.log:462005:Once in all logs1234567
+
+1 lines matched from machine.1.log in54.193.91.241
+1 lines matched from machine.2.log in13.57.234.1
+1 lines matched from machine.3.log in13.57.238.30
+1 lines matched from machine.4.log in54.193.37.145
+1 lines matched from machine.5.log in54.193.77.234
+1 lines matched from machine.6.log in54.219.130.46
+Total lines matched: 6
+
+	Test passed for VM1
+
+1 lines matched from machine.2.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510078:Once in all logs1234567
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548125:Once in all logs1234567
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502151:Once in all logs1234567
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368724:Once in all logs1234567
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464090:Once in all logs1234567
+
+From 54.219.130.46: 
+/home/ubuntu/machine.6.log:462005:Once in all logs1234567
+
+1 lines matched from machine.1.log in54.193.91.241
+1 lines matched from machine.2.log in13.57.234.1
+1 lines matched from machine.3.log in13.57.238.30
+1 lines matched from machine.4.log in54.193.37.145
+1 lines matched from machine.5.log in54.193.77.234
+1 lines matched from machine.6.log in54.219.130.46
+Total lines matched: 6
+
+	Test passed for VM2
+
+1 lines matched from machine.3.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510078:Once in all logs1234567
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548125:Once in all logs1234567
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502151:Once in all logs1234567
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368724:Once in all logs1234567
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464090:Once in all logs1234567
+
+From 54.219.130.46: 
+/home/ubuntu/machine.6.log:462005:Once in all logs1234567
+
+1 lines matched from machine.1.log in54.193.91.241
+1 lines matched from machine.2.log in13.57.234.1
+1 lines matched from machine.3.log in13.57.238.30
+1 lines matched from machine.4.log in54.193.37.145
+1 lines matched from machine.5.log in54.193.77.234
+1 lines matched from machine.6.log in54.219.130.46
+Total lines matched: 6
+
+	Test passed for VM3
+
+1 lines matched from machine.4.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510078:Once in all logs1234567
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548125:Once in all logs1234567
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502151:Once in all logs1234567
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368724:Once in all logs1234567
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464090:Once in all logs1234567
+
+From 54.219.130.46: 
+/home/ubuntu/machine.6.log:462005:Once in all logs1234567
+
+1 lines matched from machine.1.log in54.193.91.241
+1 lines matched from machine.2.log in13.57.234.1
+1 lines matched from machine.3.log in13.57.238.30
+1 lines matched from machine.4.log in54.193.37.145
+1 lines matched from machine.5.log in54.193.77.234
+1 lines matched from machine.6.log in54.219.130.46
+Total lines matched: 6
+
+	Test passed for VM4
+
+1 lines matched from machine.5.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510078:Once in all logs1234567
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548125:Once in all logs1234567
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502151:Once in all logs1234567
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368724:Once in all logs1234567
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464090:Once in all logs1234567
+
+From 54.219.130.46: 
+/home/ubuntu/machine.6.log:462005:Once in all logs1234567
+
+1 lines matched from machine.1.log in54.193.91.241
+1 lines matched from machine.2.log in13.57.234.1
+1 lines matched from machine.3.log in13.57.238.30
+1 lines matched from machine.4.log in54.193.37.145
+1 lines matched from machine.5.log in54.193.77.234
+1 lines matched from machine.6.log in54.219.130.46
+Total lines matched: 6
+
+	Test passed for VM5
+
+1 lines matched from machine.6.log
+
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+Binded Connection
+From 54.193.91.241: 
+/home/ubuntu/machine.1.log:510078:Once in all logs1234567
+
+From 13.57.234.1: 
+/home/ubuntu/machine.2.log:548125:Once in all logs1234567
+
+From 13.57.238.30: 
+/home/ubuntu/machine.3.log:502151:Once in all logs1234567
+
+From 54.193.37.145: 
+/home/ubuntu/machine.4.log:368724:Once in all logs1234567
+
+From 54.193.77.234: 
+/home/ubuntu/machine.5.log:464090:Once in all logs1234567
+
+From 54.219.130.46: 
+/home/ubuntu/machine.6.log:462005:Once in all logs1234567
+
+1 lines matched from machine.1.log in54.193.91.241
+1 lines matched from machine.2.log in13.57.234.1
+1 lines matched from machine.3.log in13.57.238.30
+1 lines matched from machine.4.log in54.193.37.145
+1 lines matched from machine.5.log in54.193.77.234
+1 lines matched from machine.6.log in54.219.130.46
+Total lines matched: 6
+
+	Test passed for VM6

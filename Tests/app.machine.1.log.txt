@@ -9,7 +9,7 @@ Common G but H different I pattern
 Test pattern B
 Test pattern B
 Test pattern B
-This message is on all machine logs, but with different numbers 1234567 
+This message is on all machine logs, but with different numbers 1234567
 Test pattern B
 Common D but E different F pattern
 Test pattern B

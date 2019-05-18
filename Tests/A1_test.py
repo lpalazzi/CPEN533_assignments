@@ -8,7 +8,7 @@ test_cases_file = os.path.abspath(os.path.join(cur_dir, "test_cases.json")) # fi
 client_path = os.path.abspath(os.path.join(cur_dir, "..", "client")) # path to program executable
 
 # load json file for test cases into dict
-with open(test_cases_file) as f:
+with open(test_cases_file, 'r') as f:
     test_cases = json.load(f)
 
 # loop through test cases and execute tests individually
@@ -25,7 +25,7 @@ for regexp, expected_outputs in test_cases.items():
 
     # check for expected output
     for i,expected_output in enumerate(expected_outputs):
-        if expected_output in output:
+        if expected_output in output.decode():
             print ("\tTest passed for VM" + str(i+1))
         else:
             print ("\tTest failed for VM" + str(i+1))

@@ -16,6 +16,10 @@ pscp -i C:\Users\tangj\Desktop\CPEN533\my-key-pair.ppk C:\Users\tangj\Desktop\cl
 
 pscp -i C:\Users\tangj\Desktop\CPEN533\my-key-pair.ppk C:\Users\tangj\Desktop\Makefile ubuntu@ec2-54-193-91-241.us-west-1.compute.amazonaws.com:/home/ubuntu/Makefile
 
+pscp -i C:\Users\tangj\Desktop\CPEN533\my-key-pair.ppk C:\Users\tangj\Desktop\A1_test.py ubuntu@ec2-54-193-91-241.us-west-1.compute.amazonaws.com:/home/ubuntu/A1_test.py
+
+pscp -i C:\Users\tangj\Desktop\CPEN533\my-key-pair.ppk C:\Users\tangj\Desktop\test_cases.json ubuntu@ec2-54-193-91-241.us-west-1.compute.amazonaws.com:/home/ubuntu/test_cases.json
+
 ==== VM2 ====
 
 sudo apt install build-essential

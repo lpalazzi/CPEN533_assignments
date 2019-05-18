@@ -108,21 +108,16 @@ void handleRequest(int fd) {
     string options = "-Hn";
     args[0] = (char *)grep.c_str();
     args[1] = (char *)options.c_str();
-    int index = 2;
 
-    // parse the input from client
-    const char delim[] = " \t\r\n";
+    // parse the arguments from client
+    const char delim[] = "\t\r\n\"";
     char * buf = strtok(request, delim);
-    while (buf != NULL) {
-        buf = strtok(NULL, delim);
-        if (buf != NULL) {
-            args[index] = buf;
-            ++index;
-        }
-    }
+    buf = strtok(NULL, delim);
+    args[2] = buf;
     string fileName = getLogFileName();
-    args[index] = (char *) fileName.c_str();
-    args[index+1] = NULL;
+    args[3] = (char *) fileName.c_str();
+    args[4] = NULL;
+
     int pid = fork();
     if (pid == -1) {
         perror("Fork Error");
