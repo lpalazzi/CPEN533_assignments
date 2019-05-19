@@ -26,10 +26,10 @@ for regexp, expected_outputs in test_cases.items():
 
     # check for expected output
     for i,expected_output in enumerate(expected_outputs):
-        my_regex = re.escape("No Results from machine." + str(i+1)) + r"\.log.*Server cannot be connected$"
+        my_regex = r"No Results from machine\." + str(i+1) + r"\.log.*Server cannot be connected\."
         if re.search(my_regex, output.decode()):
             print ("\tVM" + str(i+1) + " is not online")
-        else if expected_output in output.decode():
+        elif expected_output in output.decode():
             print ("\tTest passed for VM" + str(i+1))
         else:
             print ("\tTest failed for VM" + str(i+1))
