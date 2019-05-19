@@ -2,6 +2,7 @@ import os
 import sys
 import json
 import subprocess
+import re
 
 cur_dir = os.path.dirname( os.path.realpath(__file__) )
 test_cases_file = os.path.abspath(os.path.join(cur_dir, "test_cases.json")) # file path for input test cases json file
@@ -25,7 +26,10 @@ for regexp, expected_outputs in test_cases.items():
 
     # check for expected output
     for i,expected_output in enumerate(expected_outputs):
-        if expected_output in output.decode():
+        my_regex = re.escape("No Results from machine." + str(i+1)) + r"\.log.*Server cannot be connected$"
+        if re.search(my_regex, output.decode()):
+            print ("\tVM" + str(i+1) + " is not online")
+        else if expected_output in output.decode():
             print ("\tTest passed for VM" + str(i+1))
         else:
             print ("\tTest failed for VM" + str(i+1))
