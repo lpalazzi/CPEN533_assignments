@@ -80,6 +80,7 @@ class MessageType:
     ACK = 'ACK'
 
 class VMStatus:
+    # TODO: delete joining
     JOINING = 'JOINING'
     RUNNING = 'RUNNING'
     LEAVED = 'LEAVED'
@@ -159,6 +160,7 @@ class Daemon:
             return -1
 
         if len(membership_list_detail) <= 2:
+        # TODO: check here: what if the two VMs are VM1 and VM4?
             self.contact_list = INITIAL_CONTACT_LIST[self.host]
         else:
             self.contact_list = [
@@ -374,7 +376,7 @@ class Daemon:
                         # TODO check later 
                         if send_host in membership_list_detail:
                             del membership_list_detail[send_host]
-                            self.update_contact_list()
+                        self.update_contact_list()
 
                     else:
                         print('UNKNOWN MESSGAE TYPE RECEIVED')
