@@ -161,6 +161,7 @@ class Daemon:
 
         if len(membership_list_detail) <= 2:
         # TODO: check here: what if the two VMs are VM1 and VM4?
+        # TODO: remove duplicates?
             self.contact_list = INITIAL_CONTACT_LIST[self.host]
         else:
             self.contact_list = [
@@ -376,10 +377,11 @@ class Daemon:
                         # TODO check later 
                         if send_host in membership_list_detail:
                             del membership_list_detail[send_host]
+                        # TODO
                         self.update_contact_list()
 
                     else:
-                        print('UNKNOWN MESSGAE TYPE RECEIVED')
+                        print('UNKNOWN TYPE OF MESSAGE RECEIVED')
 
                     self.membership_lock.release()
             except Exception as e:
