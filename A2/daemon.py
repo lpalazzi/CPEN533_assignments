@@ -6,6 +6,7 @@ import time
 import random
 import logging
 import json
+import collections
 
 # udp socket port number
 PORT_NUMBER = 53313
@@ -80,7 +81,6 @@ class MessageType:
     ACK = 'ACK'
 
 class VMStatus:
-    # TODO: delete joining
     JOINING = 'JOINING'
     RUNNING = 'RUNNING'
     LEAVED = 'LEAVED'
@@ -99,13 +99,16 @@ def get_current_time():
 
 class MembershipList:
     def __init__(self, hostname, _id):
-        self.details = {
-            hostname: {
+        det = {
+            hostname :{
                 'id': _id,
                 'status': VMStatus.LEAVED,
                 'timestamp': datetime.datetime.now().strftime(TIME_FORMAT)
             }
         }
+        # TODO: membership list is not the same as the actual topology?
+        # TODO: order by the insert time or order by hostname?
+        self.details = collections.OrderedDict(sorted(det.items()))
 
 
 class Daemon:
@@ -141,6 +144,13 @@ class Daemon:
             print("%s: %d [%s]" % (k, v['id'], v['timestamp']))
         print("============")
 
+    def print_contact_list(self):
+        print("!============!")
+        print("ContactList on %s" % self.host)
+        for n, node in enumerate(self.contact_list):
+            print("%d: %s" % (n, node))
+        print("!============!")
+
     def is_introducer(self):
         return self.host == INTRODUCER_HOST
 
@@ -153,32 +163,38 @@ class Daemon:
     def update_contact_list(self):
         # TODO
         self.contact_list_lock.acquire()
-        membership_list_detail = self.membership_list.details
         try:
-            index = list(membership_list_detail.keys()).index(self.host)
+            index = list(self.membership_list.details.keys()).index(self.host)
         except ValueError:
             return -1
 
-        if len(membership_list_detail) <= 2:
-        # TODO: check here: what if the two VMs are VM1 and VM4?
-        # TODO: remove duplicates?
+        if len(self.membership_list.details) == 1:
             self.contact_list = INITIAL_CONTACT_LIST[self.host]
+        elif len(self.membership_list.details) == 2:
+            list_mem = list(self.membership_list.details.keys())
+            list_mem.remove(self.host)
+            self.contact_list = list_mem
+        elif len(self.membership_list.details) == 3:
+            list_mem = list(self.membership_list.details.keys())
+            list_mem.remove(self.host)
+            self.contact_list = list_mem
+        elif len(self.membership_list.details) == 4:
+            list_mem = list(self.membership_list.details.keys())
+            list_mem.remove(self.host)
+            self.contact_list = list_mem
         else:
             self.contact_list = [
-                list(membership_list_detail.keys())[index - 2],
-                list(membership_list_detail.keys())[index - 1],
-                list(membership_list_detail.keys())[index + 1],
-                list(membership_list_detail.keys())[index + 2],
+                list(self.membership_list.details.keys())[index - 2],
+                list(self.membership_list.details.keys())[index - 1],
+                list(self.membership_list.details.keys())[index + 1],
+                list(self.membership_list.details.keys())[index + 2],
             ]
         self.contact_list_lock.release()
 
     def heartbeat(self):
-        membership_list_detail = self.membership_list.details
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         while True:
             try:
-                self.print_membership_list()
-
                 # send heartbeat message every 1 second
                 time.sleep(1)
 
@@ -189,30 +205,34 @@ class Daemon:
 
                     # if self.leave_flag:
                     #     continue
-                    if membership_list_detail[self.host]['status'] == VMStatus.LEAVED:
+                    if self.membership_list.details[self.host]['status'] == VMStatus.LEAVED:
                         continue
 
+                    self.print_membership_list()
+                    self.print_contact_list()
+
                     self.membership_lock.acquire()
-                    membership_list_detail[self.host]['status'] == VMStatus.RUNNING
-                    membership_list_detail[self.host]['timestamp'] = get_current_time()
+                    self.membership_list.details[self.host]['status'] == VMStatus.RUNNING
+                    self.membership_list.details[self.host]['timestamp'] = get_current_time()
 
                     for host in self.contact_list:
-                        if host not in membership_list_detail:
+                        if host not in self.membership_list.details:
                             continue
                         heartbeat_message = {
                             MessageField.TYPE: MessageType.HEARTBEAT,
                             MessageField.HOST: self.host,
                             MessageField.PORT: self.port,
-                            MessageField.CONTENT: membership_list_detail
+                            MessageField.CONTENT: self.membership_list.details
                         }
                         sock.sendto(json.dumps(heartbeat_message).encode('utf-8'), (host, self.port))
 
                         # save the send time for the timeout checking
-                        if host in membership_list_detail and host not in self.timer:
+                        if host in self.membership_list.details and host not in self.timer:
                             self.timeout_lock.acquire()
                             self.timer[host] = datetime.datetime.now()
                             self.timeout_lock.release()
 
+                    self.update_contact_list()
                     self.membership_lock.release()
 
             except Exception as e:
@@ -220,7 +240,6 @@ class Daemon:
                 self.log(e)
 
     def timeout(self):
-        membership_list_detail = self.membership_list.details
         timer = self.timer
         while True:
             try:
@@ -230,13 +249,13 @@ class Daemon:
                     time_diff = now - timer[host]
                     # timeout after two seconds
                     if time_diff.seconds > 2.:
-                        if host in membership_list_detail:
+                        if host in self.membership_list.details:
                             print("Timeout for host %s." % host)
                             self.log("Timeout for host %s." % host)
 
                             # TODO lock?
                             self.membership_lock.acquire()
-                            del membership_list_detail[host]
+                            del self.membership_list.details[host]
                             self.update_contact_list()
                             self.membership_lock.release()
 
@@ -247,12 +266,11 @@ class Daemon:
                 self.log(e)
 
     def join(self):
-        membership_list_detail = self.membership_list.details
         if self.is_introducer():
             print("host %s is introducer" % self.host)
 
-        membership_list_detail[self.host]['status'] = VMStatus.RUNNING
-        membership_list_detail[self.host]['timestamp'] = get_current_time()
+        self.membership_list.details[self.host]['status'] = VMStatus.RUNNING
+        self.membership_list.details[self.host]['timestamp'] = get_current_time()
 
         if not self.is_introducer():
             sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -261,14 +279,13 @@ class Daemon:
                 MessageField.TYPE: MessageType.JOIN,
                 MessageField.HOST: self.host,
                 MessageField.PORT: self.port,
-                MessageField.CONTENT: membership_list_detail[self.host]
+                MessageField.CONTENT: self.membership_list.details[self.host]
             }
             print(join_message)
             sock.sendto(json.dumps(join_message).encode('utf-8'), (INTRODUCER_HOST, PORT_NUMBER))
 
     def leave(self):
-        membership_list_detail = self.membership_list.details
-        if membership_list_detail[self.host]['status'] != VMStatus.RUNNING:
+        if self.membership_list.details[self.host]['status'] != VMStatus.RUNNING:
             print("Cannot leave if the host %s is not in the membership list" % self.host)
             self.log("Cannot leave if the host %s is not in the membership list" % self.host)
             return
@@ -289,19 +306,24 @@ class Daemon:
         # self.update_contact_list()
         # self.membership_lock.release()
 
+        self.membership_lock.acquire()
+        self.membership_list.details.clear()
+        self.membership_list = MembershipList(self.host, self.id)
+        self.update_contact_list()
+        self.membership_lock.release()
+
         # self.leave_flag = True
-        membership_list_detail[self.host]['status'] = VMStatus.LEAVED
         print('Host %s leaves the group' % self.host)
 
     def receiver(self):
-        membership_list_detail = self.membership_list.details
+        # membership_list_detail = self.membership_list.details
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.bind(self.address)
         while True:
             try:
                 # if self.leave_flag:
                 #     continue
-                if membership_list_detail[self.host]['status'] == VMStatus.LEAVED:
+                if self.membership_list.details[self.host]['status'] == VMStatus.LEAVED:
                     continue
 
                 data, addr = sock.recvfrom(4096)
@@ -323,37 +345,37 @@ class Daemon:
                     if message_type == MessageType.HEARTBEAT:
                         content = message[MessageField.CONTENT]
                         for host in content:
-                            if host not in membership_list_detail:
-                                membership_list_detail[host] = content[host]
+                            if host not in self.membership_list.details:
+                                self.membership_list.details[host] = content[host]
                                 continue
-                            time_saved = datetime.datetime.strptime(membership_list_detail[host]['timestamp'],
+                            time_saved = datetime.datetime.strptime(self.membership_list.details[host]['timestamp'],
                                                                     TIME_FORMAT)
                             time_received = datetime.datetime.strptime(content[host]['timestamp'],
                                                                        TIME_FORMAT)
 
                             # update when the timestamp is newer
                             if time_received > time_saved:
-                                membership_list_detail[host] = content[host]
+                                self.membership_list.details[host] = content[host]
 
                             ack_message = {
                                 MessageField.TYPE: MessageType.ACK,
                                 MessageField.HOST: self.host,
                                 MessageField.PORT: PORT_NUMBER,
-                                MessageField.CONTENT: membership_list_detail[self.host]
+                                MessageField.CONTENT: self.membership_list.details[self.host]
                             }
                             sock.sendto(json.dumps(ack_message).encode('utf-8'), (send_host, PORT_NUMBER))
 
                     elif message_type == MessageType.ACK:
-                        membership_list_detail[send_host] = message[MessageField.CONTENT]
+                        self.membership_list.details[send_host] = message[MessageField.CONTENT]
                         if send_host in self.timer:
                             self.timeout_lock.acquire()
                             del self.timer[send_host]
                             self.timeout_lock.release()
 
                     elif message_type == MessageType.JOIN:
-                        membership_list_detail[send_host] = message[MessageField.CONTENT]
-                        membership_list_detail[send_host]['status'] == VMStatus.JOINING
-                        membership_list_detail[send_host]['timestamp'] = current_time
+                        self.membership_list.details[send_host] = message[MessageField.CONTENT]
+                        self.membership_list.details[send_host]['status'] == VMStatus.JOINING
+                        self.membership_list.details[send_host]['timestamp'] = current_time
                         if self.is_introducer():
                             # if it is introducer, then
                             # multicast to contact lists
@@ -363,7 +385,7 @@ class Daemon:
                                 MessageField.TYPE: MessageType.JOIN,
                                 MessageField.HOST: send_host,
                                 MessageField.PORT: PORT_NUMBER,
-                                MessageField.CONTENT: membership_list_detail[send_host]
+                                MessageField.CONTENT: self.membership_list.details[send_host]
                             }
                             # TODO: checker if it is necessary to modify ALL_HOSTS list as well?
                             for host in ALL_HOSTS:
@@ -375,10 +397,9 @@ class Daemon:
                         # TODO lock? for contact_list?
                         # membership_list_detail[send_host]['status'] = VMStatus.LEAVED
                         # TODO check later 
-                        if send_host in membership_list_detail:
-                            del membership_list_detail[send_host]
-                        # TODO
-                        self.update_contact_list()
+                        if send_host in self.membership_list.details:
+                            del self.membership_list.details[send_host]
+                            self.update_contact_list()
 
                     else:
                         print('UNKNOWN TYPE OF MESSAGE RECEIVED')
@@ -427,7 +448,6 @@ class Daemon:
 
 
 def main():
-    # TODO: check gethostname() ?
     server = Daemon(hostname=socket.gethostname(), port=PORT_NUMBER)
     server.run()
 
