@@ -142,21 +142,22 @@ class Daemon:
         self.log("============")
 
     def print_contact_list(self):
-        self.log("!============!")
-        self.log("ContactList on %s" % self.host)
+        self.log("!============!", pr=False)
+        self.log("ContactList on %s" % self.host, pr=False)
         for n, node in enumerate(self.contact_list):
-            self.log("%d: %s" % (n, node))
-        self.log("!============!")
+            self.log("%d: %s" % (n, node), pr=False)
+        self.log("!============!", pr=False)
 
     def is_introducer(self):
         return self.host == INTRODUCER_HOST
 
-    def log(self, text):
+    def log(self, text, pr=True):
         logging.basicConfig(filename=self.log_file_name, level=logging.DEBUG,
                             format='%(asctime)s %(message)s',
                             datefmt=TIME_FORMAT)
         logging.info(text)
-        print(text)
+        if pr:
+            print(text)
 
     def update_contact_list(self):
         # Create a sorted membership list
@@ -181,7 +182,7 @@ class Daemon:
                 list(self.membership_list.details.keys())[index - 2],
                 list(self.membership_list.details.keys())[index - 1],
                 list(self.membership_list.details.keys())[(index + 1) % l],
-                list(self.membership_list.details.keys())[(index + 2) % 1],
+                list(self.membership_list.details.keys())[(index + 2) % l],
             ]
         self.contact_list_lock.release()
 
@@ -314,7 +315,7 @@ class Daemon:
                         continue
                     self.log('Receive %s message from %s:%s' % (message[MessageField.TYPE],
                                                              message[MessageField.HOST],
-                                                             message[MessageField.PORT]))
+                                                             message[MessageField.PORT]), False)
                     send_host = message[MessageField.HOST]
                     current_time = get_current_time()
 
