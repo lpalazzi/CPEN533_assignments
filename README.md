@@ -8,4 +8,9 @@
 ## A2: Group Membership
 
 - Source Code: [Assignment2](https://github.com/lpalazzi/CPEN533_A1/tree/master/A2)
+- Report: [CPEN_533_A2.pdf](https://github.com/lpalazzi/CPEN533_assignments/blob/master/A2/Report/CPEN_533_A2.pdf)
+
+## A3: fs533
+
+- Source Code: TODO
 - Report: TODO
