@@ -13,6 +13,8 @@ pscp -r -i C:\Users\tangj\Desktop\CPEN533\my-key-pair.ppk C:\Users\tangj\Desktop
 
 ================= test =====================
 put /home/ubuntu/rare_case.txt test.txt
+put /home/ubuntu/machine.1.log test.log
+get test.log /home/ubuntu/test.log
 
 ================= public key ====================
 

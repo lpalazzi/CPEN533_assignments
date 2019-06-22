@@ -59,14 +59,14 @@ class FileTable:
         for i in vm_ids:
             self.id_mapper[i].add(file_name)
         if file_name not in self.file_mapper:
-            # TODO remove version
             self.file_mapper[file_name] = {
+                'status': '',
                 'timestamp': 0,
-                'version': 0,
                 'replicas': set(),
             }
+        # update file info: 'status' should be wr-able (write-readable)
+        self.file_mapper[file_name]['status'] = 'wr-able'
         self.file_mapper[file_name]['timestamp'] = datetime.datetime.now().strftime(TIME_FORMAT)
-        self.file_mapper[file_name]['version'] += 1
         self.file_mapper[file_name]['replicas'] |= vm_ids
 
     def delete_file(self, file_name):
@@ -100,15 +100,16 @@ class FS533:
             print(text)
 
     def put_file(self, local_file_name, fs533_file_name):
-        # TODO two puts in the same time, need timestamp?
-        # TODO label file status for quorum ?
         if not os.path.exists(local_file_name):
             self.log('No such file %s' % local_file_name)
             return
         file_mapper = self.file_table.file_mapper
         if fs533_file_name in file_mapper:
-            version = file_mapper[fs533_file_name]['version']
             target_ids = file_mapper[fs533_file_name]['replicas']
+            file_status = file_mapper[fs533_file_name]['status']
+            if file_status != 'wr-able':
+                self.log('Other writing operation is not finished. Wait for a monment!')
+                return
             init_time = datetime.datetime.strptime(file_mapper[fs533_file_name]['timestamp'], TIME_FORMAT)
             current_time = datetime.datetime.now()
             diff = current_time - init_time
@@ -130,23 +131,34 @@ class FS533:
                 #     print("time out")
                 #     return
                 print('Press enter to continue.', end='', flush=True)
+                self.log('Press enter to continue.', pr=False)
                 r, w, x = select.select([sys.stdin], [], [], 30)
                 if not r:
                     print('\ntime out')
+                    self.log('\ntime out', pr=False)
                     return
                 else:
                     print('\nContinue to put the file.')
+                    self.log('\nContinue to put the file.', pr=False)
         else:
-            version = 0
             target_ids = get_default_replicas(message_digest_file(local_file_name))
 
-        file_name_with_version = fs533_file_name + '.' + str(version)
-        self.log('Put file %s to %s' % (local_file_name, file_name_with_version))
+        # update file status to other nodes
+        sock_status = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        status_message = {
+            'type': 'status-update',
+            'filename': fs533_file_name,
+            'status': 'writing'
+        }
+        for host in ALL_HOSTS:
+            sock_status.sendto(json.dumps(status_message).encode('utf-8'), (host, self.port))
+
+        self.log('Put file %s to %s' % (local_file_name, fs533_file_name))
         for i in target_ids:
             target_hostname = vm_id_to_hostname(i)
             pre = 'ubuntu@' + target_hostname
             try:
-                Popen(['scp', '-i', '/home/ubuntu/CPEN533.pem', local_file_name, pre + ':' + os.path.join(FILE_SYSTEM_PATH, file_name_with_version)], stdout=PIPE)
+                Popen(['scp', '-i', '/home/ubuntu/CPEN533.pem', local_file_name, pre + ':' + os.path.join(FILE_SYSTEM_PATH, fs533_file_name)], stdout=PIPE)
             except Exception as e:
                 print(e.message)
                 self.log(e.message)
@@ -157,37 +169,40 @@ class FS533:
             'type': 'update',
             'filename': fs533_file_name,
             'replicas': list(target_ids),
-            'version': file_mapper[fs533_file_name]['version'],
-            'timestamp': file_mapper[fs533_file_name]['timestamp']
+            'timestamp': file_mapper[fs533_file_name]['timestamp'],
+            'status': file_mapper[fs533_file_name]['status']
         }
         for host in ALL_HOSTS:
             sock.sendto(json.dumps(update_message).encode('utf-8'), (host, self.port))
 
     def get_file(self, fs533_file_name, local_file_name):
-        # TODO label file status for quorum ?
         file_mapper = self.file_table.file_mapper
         if fs533_file_name not in file_mapper:
             self.log('No such file %s in fs533 file system' % fs533_file_name)
             return
 
         get_file_id = list(file_mapper[fs533_file_name]['replicas'])[0]
-        version = file_mapper[fs533_file_name]['version']
+        status = file_mapper[fs533_file_name]['status']
+        if status != 'wr-able':
+            self.log('Other writing operation is not finished. Wait for a monment!')
+            return
 
-        version_number = version - 1
-        file_name_with_version = fs533_file_name + '.' + str(version_number)
         pre = 'ubuntu@' + vm_id_to_hostname(get_file_id)
         try:
-            Popen(['scp', '-i', '/home/ubuntu/CPEN533.pem', pre + ':' + os.path.join(FILE_SYSTEM_PATH, file_name_with_version), local_file_name], stdout=PIPE)
-            self.log('Get file %s from vm_id %s' % (file_name_with_version, get_file_id))
+            Popen(['scp', '-i', '/home/ubuntu/CPEN533.pem', pre + ':' + os.path.join(FILE_SYSTEM_PATH, fs533_file_name), local_file_name], stdout=PIPE)
+            self.log('Get file %s from vm_id %s' % (fs533_file_name, get_file_id))
         except Exception as e:
             print(e.message)
             self.log(e.message)
 
     def remove_file(self, fs533_file_name):
-        # TODO label file status for quorum ?
         file_mapper = self.file_table.file_mapper
         if fs533_file_name not in file_mapper:
             self.log('No such file %s in fs533 file system' % fs533_file_name)
+            return
+        status = file_mapper[fs533_file_name]['status']
+        if status != 'wr-able':
+            self.log('Other writing operation is not finished. Wait for a monment!')
             return
 
         self.file_table.delete_file(fs533_file_name)
@@ -211,7 +226,6 @@ class FS533:
         pprint(file_mapper[fs533_file_name])
 
     def ls_here(self):
-        # TODO
         for file in os.listdir(FILE_SYSTEM_PATH):
             pprint(file)
 
@@ -238,12 +252,12 @@ class FS533:
                         id_mapper[replica].add(filename)
                     if filename not in file_mapper:
                         file_mapper[filename] = {
+                            'status': '',
                             'timestamp': 0,
-                            'version': 0,
                             'replicas': set(),
                         }
+                    file_mapper[filename]['status'] = message['status']
                     file_mapper[filename]['timestamp'] = message['timestamp']
-                    file_mapper[filename]['version'] = message['version']
                     file_mapper[filename]['replicas'] |= replicas
 
                 elif message_type == 'remove':
@@ -287,8 +301,8 @@ class FS533:
                                     'type': 'update',
                                     'filename': f,
                                     'replicas': list({random_id} | replicas),
-                                    'version': file_mapper[f]['version'],
-                                    'timestamp': file_mapper[f]['timestamp']
+                                    'timestamp': file_mapper[f]['timestamp'],
+                                    'status': file_mapper[f]['status']
                                 }
                                 for host in ALL_HOSTS:
                                     sock_new.sendto(json.dumps(update_message).encode('utf-8'), (host, self.port))
@@ -318,6 +332,13 @@ class FS533:
                                 sock_join.sendto(json.dumps(join_message).encode('utf-8'), (host, self.port))
                     else:
                         self.lives |= set(message['lives'])
+                elif message_type == 'status-update':
+                    self.log(message)
+                    filename = message['filename']
+                    if filename not in file_mapper:
+                        continue
+                    else:
+                        file_mapper[filename]['status'] = message['status']
 
     def commands(self):
         commands_list = '''
