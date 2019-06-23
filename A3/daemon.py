@@ -192,7 +192,7 @@ class Daemon:
 
     def log(self, text, pr=True):
         logging.basicConfig(filename=self.log_file_name, level=logging.DEBUG,
-                            format='%(asctime)s %(message)s',
+                            format='%(asctime)s.%(msecs)04d %(message)s',
                             datefmt=TIME_FORMAT)
         logging.info(text)
         if pr:

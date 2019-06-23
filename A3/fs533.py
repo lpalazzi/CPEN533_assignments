@@ -93,13 +93,16 @@ class FS533:
 
     def log(self, text, pr=True):
         logging.basicConfig(filename=self.log_file_name, level=logging.INFO,
-                            format='%(asctime)s %(message)s',
+                            format='%(asctime)s.%(msecs)04d %(message)s',
                             datefmt=TIME_FORMAT)
         logging.info(text)
         if pr:
             print(text)
 
     def put_file(self, local_file_name, fs533_file_name):
+        # for the measurements
+        time_n = datetime.datetime.now()
+        self.log('Start Putting %s into fs533' % fs533_file_name)
         if not os.path.exists(local_file_name):
             self.log('No such file %s' % local_file_name)
             return
@@ -158,7 +161,8 @@ class FS533:
             target_hostname = vm_id_to_hostname(i)
             pre = 'ubuntu@' + target_hostname
             try:
-                Popen(['scp', '-i', '/home/ubuntu/CPEN533.pem', local_file_name, pre + ':' + os.path.join(FILE_SYSTEM_PATH, fs533_file_name)], stdout=PIPE)
+                p = Popen(['scp', '-i', '/home/ubuntu/CPEN533.pem', local_file_name, pre + ':' + os.path.join(FILE_SYSTEM_PATH, fs533_file_name)], stdout=PIPE)
+                p.wait()
             except Exception as e:
                 print(e.message)
                 self.log(e.message)
@@ -174,8 +178,16 @@ class FS533:
         }
         for host in ALL_HOSTS:
             sock.sendto(json.dumps(update_message).encode('utf-8'), (host, self.port))
+        # for the measurements
+        time_f = datetime.datetime.now()
+        time_d = time_f - time_n
+        self.log('Finish Putting %s into fs533 using time %s' % (fs533_file_name, str(time_d)))
+
 
     def get_file(self, fs533_file_name, local_file_name):
+        # for the measurements
+        time_n = datetime.datetime.now()
+        self.log('Start getting %s from fs533' % fs533_file_name)        
         file_mapper = self.file_table.file_mapper
         if fs533_file_name not in file_mapper:
             self.log('No such file %s in fs533 file system' % fs533_file_name)
@@ -189,13 +201,21 @@ class FS533:
 
         pre = 'ubuntu@' + vm_id_to_hostname(get_file_id)
         try:
-            Popen(['scp', '-i', '/home/ubuntu/CPEN533.pem', pre + ':' + os.path.join(FILE_SYSTEM_PATH, fs533_file_name), local_file_name], stdout=PIPE)
+            p = Popen(['scp', '-i', '/home/ubuntu/CPEN533.pem', pre + ':' + os.path.join(FILE_SYSTEM_PATH, fs533_file_name), local_file_name], stdout=PIPE)
+            p.wait()
             self.log('Get file %s from vm_id %s' % (fs533_file_name, get_file_id))
         except Exception as e:
             print(e.message)
             self.log(e.message)
+        # for the measurements
+        time_f = datetime.datetime.now()
+        time_d = time_f - time_n
+        self.log('Finish getting %s from fs533 using time %s' % (fs533_file_name, str(time_d)))
 
     def remove_file(self, fs533_file_name):
+        # for the measurements
+        time_n = datetime.datetime.now()
+        self.log('Start removing %s from fs533' % fs533_file_name) 
         file_mapper = self.file_table.file_mapper
         if fs533_file_name not in file_mapper:
             self.log('No such file %s in fs533 file system' % fs533_file_name)
@@ -214,6 +234,10 @@ class FS533:
         }
         for host in ALL_HOSTS:
             sock.sendto(json.dumps(remove_message).encode('utf-8'), (host, self.port))
+        # for the measurements
+        time_f = datetime.datetime.now()
+        time_d = time_f - time_n
+        self.log('Finish removing %s from fs533 using time %s' % (fs533_file_name, str(time_d)))
 
     def ls(self):
         pprint(self.file_table.id_mapper)
@@ -294,7 +318,8 @@ class FS533:
                                     if os.path.isfile(file_path) and file.startswith(f):
                                         self.log('Re-replica file %s to %d' % (file, random_id))
                                         pre = 'ubuntu@' + vm_id_to_hostname(random_id)
-                                        Popen(['scp', '-i', '/home/ubuntu/CPEN533.pem', file_path, pre + ':' + file_path], stdout=PIPE)
+                                        p = Popen(['scp', '-i', '/home/ubuntu/CPEN533.pem', file_path, pre + ':' + file_path], stdout=PIPE)
+                                        p.wait()
 
                                 sock_new = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
                                 update_message = {
