@@ -413,6 +413,7 @@ class FS533:
                 self.locate_file(args[1])
             elif arg == 'lshere':
                 self.ls_here()
+            # TODO add test here
             else:
                 self.log('UNKNOW ARGUMENT %s' % arg)
 
