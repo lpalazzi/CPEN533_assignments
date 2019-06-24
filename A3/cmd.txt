@@ -55,6 +55,8 @@ pscp -r -i C:\Users\tangj\Desktop\CPEN533\my-key-pair.ppk C:\Users\tangj\Desktop
 
 pscp -r -i C:\Users\tangj\Desktop\CPEN533\my-key-pair.ppk C:\Users\tangj\Desktop\dummy_100MB.txt ubuntu@ec2-54-193-91-241.us-west-1.compute.amazonaws.com:/home/ubuntu/dummy_100MB.txt
 
+pscp -r -i C:\Users\tangj\Desktop\CPEN533\my-key-pair.ppk C:\Users\tangj\Desktop\raw.en.tgz ubuntu@ec2-54-193-91-241.us-west-1.compute.amazonaws.com:/home/ubuntu/wiki.en
+
 put /home/ubuntu/dummy_40MB.txt 40.txt
 put /home/ubuntu/dummy_25MB.txt 25.txt
 get 25.txt /home/ubuntu/dummy_25MB.txt
@@ -62,6 +64,8 @@ put /home/ubuntu/dummy_100MB.txt 100.txt
 get 100.txt /home/ubuntu/dummy_100MB.txt
 remove 25.txt
 remove 100.txt
+
+put /home/ubuntu/wiki.en wiki.en
 
 pscp -r -i C:\Users\tangj\Desktop\CPEN533\my-key-pair.ppk ubuntu@ec2-54-193-91-241.us-west-1.compute.amazonaws.com:/home/ubuntu/Assignment3/FS533-ip-172-31-28-99.log C:\Users\tangj\Desktop\FS533-ip-172-31-28-99.log
 

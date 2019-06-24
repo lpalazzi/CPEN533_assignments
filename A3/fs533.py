@@ -17,6 +17,7 @@ import shutil
 import hashlib
 import select
 import sys
+import filecmp
 
 # # create a signal ZeroDivisionError for interupt the input
 # signal(SIGALRM, lambda x:1/0)
@@ -365,6 +366,62 @@ class FS533:
                     else:
                         file_mapper[filename]['status'] = message['status']
 
+    def test(self):
+        # test set-up: generate random local files
+        test_folder = os.path.join(os.path.expanduser('~'), 'A3_test')
+        if os.path.exists(test_folder):
+            shutil.rmtree(test_folder)
+
+        os.mkdir(test_folder)            
+        num_files = 10
+        avail_filenames = set()
+        for num in range(num_files):
+            avail_filenames.add('random_file-' + str(num))
+
+        try:
+            for filename in avail_filenames:
+                filepath = os.path.join(test_folder, filename)
+                with open(filepath, 'wb') as f:
+                    f.write(os.urandom(1024))
+                # put operation
+                self.put_file(filepath, filename)
+
+            # ls operation
+            ls_filenames = set()
+            for v in self.file_table.id_mapper.values():
+                ls_filenames |= v
+            if ls_filenames != avail_filenames:
+                print('Test failed! Files in fs533 file system are not as expected.')
+                return
+            else:
+                self.ls()
+                print('Put and ls operation passed.')
+            # get operation into a different place
+            for f in ls_filenames:
+                new_localpath = f + '-new'
+                self.get_file(f, os.path.join(test_folder, new_localpath))
+                if not filecmp.cmp(os.path.join(test_folder, new_localpath), os.path.join(test_folder, f)):
+                    print('Test failed! Get returned a file with different contents than the original')
+                    return
+                else:
+                    print('Get operation passed.')
+            # remove and ls operation
+            for f in ls_filenames:
+                self.remove_file(f)
+            ls_new_filenames = set()
+            for v in self.file_table.id_mapper.values():
+                ls_new_filenames |= v
+            if len(ls_new_filenames) != 0:
+                print('Test failed! Should have no files in fs533 file system')
+                return
+            else:
+                self.ls()
+                print('Remove and ls operation passed.')
+
+            print('Tests passed!')
+        except Exception as e:
+            print(e)
+
     def commands(self):
         commands_list = '''
         ===== Command Lists =====
@@ -378,6 +435,7 @@ class FS533:
         ---> ls : list all files in fs533
         ---> locate [fs533filename] : list all machines (name / id / IP address) of the servers that contain a copy of the file
         ---> lshere : list all fs533 files stored on the local machine
+        ---> test : test the basic operations of fs533 file system
         '''
         print(commands_list)
         while True:
@@ -414,6 +472,8 @@ class FS533:
             elif arg == 'lshere':
                 self.ls_here()
             # TODO add test here
+            elif arg == 'test':
+                self.test()
             else:
                 self.log('UNKNOW ARGUMENT %s' % arg)
 
