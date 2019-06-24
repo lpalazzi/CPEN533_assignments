@@ -12,5 +12,5 @@
 
 ## A3: fs533
 
-- Source Code: TODO
-- Report: TODO
+- Source Code: [Assignment3](https://github.com/lpalazzi/CPEN533_assignments/tree/master/A3)
+- Report: [CPEN_533_A3.pdf](https://github.com/lpalazzi/CPEN533_assignments/blob/master/A3/Report/CPEN_533_A3.pdf)
