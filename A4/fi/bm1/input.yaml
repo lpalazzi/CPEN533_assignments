@@ -1,0 +1,19 @@
+compileOption:
+    instSelMethod:
+      - insttype:
+          include: 
+            - add
+            - sub
+          exclude:
+            - ret
+
+    regSelMethod: regloc
+    regloc: dstreg
+
+runOption:
+    - run:
+        numOfRuns: 3000
+        fi_type: bitflip
+        
+defaultTimeout: 3000
+
